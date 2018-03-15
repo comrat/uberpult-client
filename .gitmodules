@@ -1,0 +1,6 @@
+[submodule "controls"]
+	path = controls
+	url = git@github.com:pureqml/controls.git
+[submodule "qmlcore"]
+	path = qmlcore
+	url = https://github.com/pureqml/qmlcore
