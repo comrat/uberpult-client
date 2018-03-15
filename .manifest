@@ -1,0 +1,10 @@
+{
+	"platforms": ["web"],
+	"minify": true,
+	"templater": "jinja2",
+	"properties": {
+		"title": "uberpult-client",
+		"version": "1.0.0",
+		"description": "uberpult clinet"
+	}
+}
