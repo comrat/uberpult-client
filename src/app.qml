@@ -3,11 +3,11 @@ Item {
 
 	WebSocketClient {
 		id: client;
-		ip: "192.168.0.106";
 		port: "42451";
 	}
 
 	IpInput {
+		id: ipInput;
 		y: 20;
 		anchors.horizontalCenter: parent.horizontalCenter;
 	}
@@ -15,8 +15,8 @@ Item {
 	Text {
 		y: 50;
 		width: 100%;
-		color: "#F44336";
-		text: "No connection";
+		color: client.connected ? "#4CAF50" : "#F44336";
+		text: client.connected ? "Connected" : "No connection";
 		horizontalAlignment: Text.AlignHCenter;
 		font.pixelSize: 32;
 	}
@@ -38,6 +38,9 @@ Item {
 			text: "Connect";
 		}
 
-		onClicked: { log("TODO: impl") }
+		onClicked: {
+			client.ip = ipInput.value
+			client.connect()
+		}
 	}
 }

@@ -1,17 +1,18 @@
 Row {
+	property string value: first.value + "." + second.value + "." + third.value + "." + forth.value;
 	spacing: 5;
 
-	IpField { }
+	IpField { id: first; }
 
 	Text { text: "."; }
 
-	IpField { }
+	IpField { id: second; }
 
 	Text { text: "."; }
 
-	IpField { }
+	IpField { id: third; }
 
 	Text { text: "."; }
 
-	IpField { }
+	IpField { id: forth; }
 }

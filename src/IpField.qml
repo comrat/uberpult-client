@@ -6,4 +6,6 @@ NumberInput {
 	max: 255;
 
 	Border { width:1; color:"#000"; }
+
+	onCompleted: { this.value = 0 }
 }
