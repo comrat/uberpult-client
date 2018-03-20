@@ -12,8 +12,21 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter;
 	}
 
-	Text {
+	NumberInput {
+		id: port;
 		y: 50;
+		width: 60;
+		height: 20;
+		horizontalAlignment: Text.AlignHCenter;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		value: "42451";
+		min: 0;
+
+		Border { width: 1; color: "#000"; }
+	}
+
+	Text {
+		y: 80;
 		width: 100%;
 		color: client.connected ? "#4CAF50" : "#F44336";
 		text: client.connected ? "Connected" : "No connection";
@@ -22,7 +35,7 @@ Item {
 	}
 
 	WebItem {
-		y: 100;
+		y: 130;
 		width: 130;
 		height: 40;
 		anchors.horizontalCenter: parent.horizontalCenter;
