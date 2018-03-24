@@ -26,7 +26,7 @@ Object {
 			self.connected = false
 		}
 
-		socket.onmessage = function(event) { log("Got message:", event.data) }
+		socket.onmessage = function(event) { self.message(JSON.parse(event.data)); self._context._processActions() }
 		socket.onerror = function(error) { log("Connection error:", error.message) }
 	}
 }

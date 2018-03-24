@@ -4,6 +4,12 @@ Item {
 	WebSocketClient {
 		id: client;
 		port: "42451";
+
+		onMessage(data): {
+			phone.alpha = data.alpha
+			phone.beta = data.beta
+			phone.gamma = data.gamma
+		}
 	}
 
 	IpInput {
@@ -55,5 +61,19 @@ Item {
 			client.ip = ipInput.value
 			client.connect()
 		}
+	}
+
+	Image {
+		id: phone;
+		property int alpha;
+		property int gamma;
+		property int beta;
+		y: 230;
+		height: 250;
+		fillMode: Image.PreserveAspectFit;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		source: "res/phone.png";
+		transform.rotateY: gamma;
+		transform.rotateX: beta;
 	}
 }
