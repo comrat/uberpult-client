@@ -74,6 +74,6 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter;
 		source: "res/phone.png";
 		transform.rotateY: gamma;
-		transform.rotateX: beta;
+		transform.rotateX: -beta;
 	}
 }
