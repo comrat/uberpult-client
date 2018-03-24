@@ -19,14 +19,23 @@ Object {
 		socket.onopen = function() {
 			log("Sonnection opened")
 			self.connected = true
+			self._context._processActions()
 		}
 
 		socket.onclose = function(event) {
 			log('Connection was closed. Code:', event.code, 'reason:', event.reason, "wasClean:", event.wasClean)
 			self.connected = false
+			self._context._processActions()
 		}
 
-		socket.onmessage = function(event) { self.message(JSON.parse(event.data)); self._context._processActions() }
-		socket.onerror = function(error) { log("Connection error:", error.message) }
+		socket.onerror = function(error) {
+			log("Connection error:", error.message)
+			self._context._processActions()
+		}
+
+		socket.onmessage = function(event) {
+			self.message(JSON.parse(event.data))
+			self._context._processActions()
+		}
 	}
 }
