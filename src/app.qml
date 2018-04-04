@@ -25,7 +25,7 @@ Item {
 		height: 20;
 		horizontalAlignment: Text.AlignHCenter;
 		anchors.horizontalCenter: parent.horizontalCenter;
-		value: "42451";
+		value: client.port;
 		min: 0;
 
 		Border { width: 1; color: "#000"; }
@@ -63,17 +63,8 @@ Item {
 		}
 	}
 
-	Image {
+	ServerPhoneControl {
 		id: phone;
-		property int alpha;
-		property int gamma;
-		property int beta;
 		y: 230;
-		height: 250;
-		fillMode: Image.PreserveAspectFit;
-		anchors.horizontalCenter: parent.horizontalCenter;
-		source: "res/phone.png";
-		transform.rotateY: gamma;
-		transform.rotateX: -beta;
 	}
 }
