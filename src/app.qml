@@ -6,9 +6,28 @@ Item {
 		port: "42451";
 
 		onMessage(data): {
-			phone.alpha = data.alpha
-			phone.beta = data.beta
-			phone.gamma = data.gamma
+			if (!data || !data.event)
+				return
+
+			var event = data.event
+			switch (event) {
+				case "accelerometer":
+					phone.alpha = data.alpha
+					phone.beta = data.beta
+					phone.gamma = data.gamma
+					break
+				case "keyPressed":
+					log("Key pressed", data.keyCode)
+					break
+				case "leftJoystick":
+					var axes = data.axes
+					log("Left joystick", axes)
+					break
+				case "rightJoystick":
+					var axes = data.axes
+					log("Right joystick", axes)
+					break
+			}
 		}
 	}
 
