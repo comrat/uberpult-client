@@ -17,6 +17,7 @@ Item {
 					phone.gamma = data.gamma
 					break
 				case "keyPressed":
+					log("real keypressed", data.keyCode)
 					break
 				case "leftJoystick":
 					var axes = data.axes
@@ -86,7 +87,14 @@ Item {
 		y: 230;
 	}
 
-	onKeyPressed: {
-		log("real keypressed", key)
+	Text {
+		id: lastKeyText;
+		y: 550;
+		width: 100%;
+		horizontalAlignment: Text.AlignHCenter;
+		font.pixelSize: 21;
+		color: "#000";
 	}
+
+	onKeyPressed: { lastKeyText.text = "Key:" + key }
 }
