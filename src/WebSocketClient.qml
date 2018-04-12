@@ -3,9 +3,18 @@ Object {
 	signal closed;
 	signal message;
 	property bool connected;
+	property bool emulateKeyPressing: true;
 	property string ip;
 	property string port;
 	property string host: "ws://" + ip + ":" + port;
+
+	pressKey(key): {
+		var keyCode = _globals.core.getKeyCodeByName(key)
+		if (keyCode) {
+			var event = { keyCode : keyCode , timeStamp: new Date().getTime() }
+			this.parent._context.processKey(event)
+		}
+	}
 
 	connect: {
 		if (!this.ip || !this.port) {
@@ -33,7 +42,10 @@ Object {
 		})
 
 		socket.onmessage = context.wrapNativeCallback(function(event) {
-			self.message(JSON.parse(event.data))
+			var data = JSON.parse(event.data)
+			if (self.emulateKeyPressing && data && data.keyCode)
+				self.pressKey(data.keyCode)
+			self.message(data)
 		})
 	}
 }
