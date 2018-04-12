@@ -17,7 +17,6 @@ Item {
 					phone.gamma = data.gamma
 					break
 				case "keyPressed":
-					log("Key pressed", data.keyCode)
 					break
 				case "leftJoystick":
 					var axes = data.axes
@@ -85,5 +84,9 @@ Item {
 	ServerPhoneControl {
 		id: phone;
 		y: 230;
+	}
+
+	onKeyPressed: {
+		log("real keypressed", key)
 	}
 }
