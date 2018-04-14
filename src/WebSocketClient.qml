@@ -43,8 +43,8 @@ Object {
 
 		socket.onmessage = context.wrapNativeCallback(function(event) {
 			var data = JSON.parse(event.data)
-			if (self.emulateKeyPressing && data && data.keyCode)
-				self.pressKey(data.keyCode)
+			if (self.emulateKeyPressing && data && data.key)
+				self.pressKey(data.key)
 			self.message(data)
 		})
 	}

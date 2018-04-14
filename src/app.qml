@@ -17,7 +17,7 @@ Item {
 					phone.gamma = data.gamma
 					break
 				case "keyPressed":
-					log("real keypressed", data.keyCode)
+					log("real keypressed", data.key)
 					break
 				case "leftJoystick":
 					var axes = data.axes
