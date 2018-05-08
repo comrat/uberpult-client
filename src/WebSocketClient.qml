@@ -16,6 +16,12 @@ Object {
 		}
 	}
 
+	send(msg): {
+		log("send:", this.connected, "socket", this._socket)
+		if (this.connected)
+			this._socket.send(msg)
+	}
+
 	connect: {
 		if (!this.ip || !this.port) {
 			log("Failed to connect port:", this.port, "ip:", this.ip)
