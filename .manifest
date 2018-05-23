@@ -3,7 +3,7 @@
 	"minify": true,
 	"templater": "jinja2",
 	"properties": {
-		"title": "uberpult-client",
+		"title": "uberpultclient",
 		"version": "1.0.0",
 		"description": "uberpult clinet"
 	}
