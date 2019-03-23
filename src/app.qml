@@ -1,6 +1,8 @@
 Item {
 	anchors.fill: context;
 
+	Device { id: device; }
+
 	WebSocketClient {
 		id: client;
 		port: "42451";
@@ -97,4 +99,9 @@ Item {
 	}
 
 	onKeyPressed: { lastKeyText.text = "Key:" + key }
+
+	onCompleted: {
+		if (device.lockOrientation)
+			device.lockOrientation("portrait-primary")
+	}
 }
