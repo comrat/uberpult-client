@@ -6,6 +6,6 @@ Image {
 	fillMode: Image.PreserveAspectFit;
 	anchors.horizontalCenter: parent.horizontalCenter;
 	source: "res/phone.png";
-	transform.rotateY: gamma;
+	transform.rotateY: -gamma;
 	transform.rotateX: -beta;
 }
