@@ -1,5 +1,6 @@
-Item {
+Rectangle {
 	anchors.fill: context;
+	color: "#fff";
 
 	Device { id: device; }
 
