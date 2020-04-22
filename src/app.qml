@@ -8,6 +8,14 @@ Rectangle {
 		id: client;
 		port: "42451";
 
+		pressKey(key): {
+			var keyCode = _globals.core.getKeyCodeByName(key)
+			if (keyCode) {
+				var event = { keyCode : keyCode , timeStamp: new Date().getTime() }
+				this.parent._context.processKey(event)
+			}
+		}
+
 		onMessage(data): {
 			if (!data || !data.event)
 				return
@@ -21,6 +29,7 @@ Rectangle {
 					break
 				case "keyPressed":
 					log("real keypressed", data.key)
+					this.pressKey(data.key)
 					break
 				case "leftJoystick":
 					var axes = data.axes
