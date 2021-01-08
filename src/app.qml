@@ -6,7 +6,9 @@ Rectangle {
 
 	WebSocketClient {
 		id: client;
-		port: "42451";
+		property string ip;
+		property string port: "42451";
+		url: "ws://" + ip + ":" + port;
 
 		pressKey(key): {
 			var keyCode = _globals.core.getKeyCodeByName(key)
@@ -65,8 +67,8 @@ Rectangle {
 	Text {
 		y: 80;
 		width: 100%;
-		color: client.connected ? "#4CAF50" : "#F44336";
-		text: client.connected ? "Connected" : "No connection";
+		color: client.state == WebSocket.Open ? "#4CAF50" : "#F44336";
+		text: client.state == WebSocket.Open ? "Connected" : "No connection";
 		horizontalAlignment: Text.AlignHCenter;
 		font.pixelSize: 32;
 	}
